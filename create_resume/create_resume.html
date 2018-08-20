@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>CV-Maker Dashboard</title>
+</head>
+
+<body>
+    <h1 id="welcomeUsername"></h1>
+    <button onclick="logOut()">Logout</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>ENTER RESUME TITLE</h2>
+    <form onsubmit="createResume(event)">
+        <input type="text" placeholder="Enter Resume Title" id="txtResumeTitle" required>
+        <button>Create</button>
+    </form>
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+<script src="js/create_resume.js"></script>
+
+</html>
