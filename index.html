@@ -1,13 +1,42 @@
 <html>
-    <head>
-        <title>CV-Maker Home</title>
-    </head>
-    <body>
-        <a href="signup/signup.html">
-            <h1>SignUp</h1>
-        </a>
-        <a href="login/login.html">
-            <h1>Login</h1>
-        </a>
-    </body>
+<head>
+    <title>CV-Maker Signin</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-primary bg-dark">
+        <span class="navbar-brand mb-0 h1 title">
+            <img src="../assets/images/logo.png" class="logo" alt="CV"> &nbsp; BUILD YOUR RESUME
+        </span>
+    </nav>
+
+    <div class="container">
+        <div class="card mt-5">
+            <nav class="navbar navbar-primary bg-primary">
+                <span class="navbar-brand mb-0 h1 authentication-header">SIGNIN ACCOUNT</span>
+            </nav>
+            <div class="card-body">
+                <form onsubmit="login(event)">
+                    <input type="email" placeholder="Email" id="txtEmail" class="form-control mt-3" required>
+                    <input type="password" placeholder="Password" id="txtPassword" class="form-control mt-3" required>
+                    <input type="checkbox" onclick="showPassword()" class="mt-2 showPasswordCheckBox">&nbsp;<span id="showHideContent" class="checkedBoxText text-success">Show Password</span>
+                    <br/>
+                    <button class="btn btn-primary mt-3" id="btnSignin">Signin</button>
+                    <br/>
+                    <a href="signup/signup.html">
+                        <p class="mt-2 float-right text-danger">Create Account</p>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+<script src="login/js/login.js"></script>
 </html>

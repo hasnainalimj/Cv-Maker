@@ -17,7 +17,7 @@ let user_id = localStorage.getItem('user_id');
 
 //Getting UserName
 db.collection('users').doc(user_id).get().then(doc => {
-    document.getElementById('welcomeUsername').innerHTML = "Welcome " + doc.data().firstname + " " + doc.data().lastname;
+    document.getElementById('welcomeUsername').innerHTML = doc.data().firstname;
 }).catch(e => {
     console.log(e.message);
 })

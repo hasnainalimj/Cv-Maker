@@ -2,11 +2,27 @@
 
 <head>
     <title>CV-Maker Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
 </head>
 
 <body>
-    <h1 id="welcomeUsername"></h1>
-    <button onclick="logOut()">Logout</button>
+    <nav class="navbar navbar-primary bg-dark main-nav">
+        <span class="navbar-brand mb-0 h1 title">
+            <img src="../assets/images/logo.png" class="logo" alt="CV"> &nbsp; BUILD YOUR RESUME
+
+            <!-- <span id="welcomeUsername" class="user"></span> -->
+            <div class="dropdown" id="myaccounts">
+                <button id="welcomeUsername" class="showname btn-sm"></button>
+                <div>
+                    <!-- <a href="#" class="btn-sm"></a> -->
+                    <button class="btn btn-danger" onclick="logOut()">Logout</button>
+                </div>
+        </span>
+    </nav>
+
+
+
     <br>
     <br>
     <br>

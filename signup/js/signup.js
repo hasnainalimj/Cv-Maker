@@ -12,10 +12,11 @@ firebase.initializeApp(config);
 const db = firebase.firestore();
 const auth = firebase.auth();
 
-
 //Registration
 function signup(event) {
   event.preventDefault();
+
+  document.getElementById('btnSignup').innerHTML = "";
 
   //Getting Values
   let firstName = document.getElementById('txtFirstName').value;
@@ -24,6 +25,13 @@ function signup(event) {
   let password = document.getElementById('txtPassword').value;
   let mobile = document.getElementById('txtMobile').value;
 
+  var signupBtn = document.getElementById('btnSignup');
+  var loader = document.createElement('img');
+  loader.setAttribute('src','../assets/images/loader.gif');
+  loader.setAttribute('class','loader');
+  loader.setAttribute('id','loaders');
+  signupBtn.appendChild(loader);
+
   //Signup
   auth.createUserWithEmailAndPassword(email, password).then(data => {
     console.log('Register Successfully');
@@ -31,8 +39,8 @@ function signup(event) {
 
     //Adding User Record
     db.collection('users').doc(data.user.uid).set({
-      firstname : firstName,
-      lastname : lastName,
+      firstname: firstName,
+      lastname: lastName,
       email: email,
       password: password,
       mobile: mobile
@@ -46,7 +54,45 @@ function signup(event) {
     document.getElementById('txtEmail').value = "";
     document.getElementById('txtPassword').value = "";
     document.getElementById('txtMobile').value = "";
+    document.getElementById('loaders').style.display = "none";
+    document.getElementById('btnSignup').innerHTML = "Create Account";
+    alert("Error While Signing Up!");
   })
 }
 
-//
+//Show Password
+function showPassword() {
+  let password = document.getElementById('txtPassword');
+  let text = document.getElementById('showHideContent');
+
+  if (password.type == "password") {
+    password.type = "text";
+    text.innerHTML = "Hide Password";
+  }
+  else {
+    password.type = "password";
+    text.innerHTML = "Show Password";
+  }
+}
+
+//Checking Password Strength
+function checkStrength() {
+  let password = document.getElementById('txtPassword').value;
+  let validation = document.getElementById('passwordStrength');
+
+  if (password.length == 0) {
+    validation.innerHTML = "";
+  }
+  else if (password.length < 4) {
+    validation.innerHTML = "Weak";
+    validation.setAttribute('class', ' text-danger');
+  }
+  else if (password.length < 7) {
+    validation.innerHTML = "Medium";
+    validation.setAttribute('class', ' text-primary');
+  }
+  else if (password.length < 10) {
+    validation.innerHTML = "Strong";
+    validation.setAttribute('class', ' text-success');
+  }
+}
