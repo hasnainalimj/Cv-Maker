@@ -1,11 +1,5 @@
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyDUdgVJ35yp0D6H5YPKL8tzFGM3A3YsztA",
-  authDomain: "cv-maker-37e7a.firebaseapp.com",
-  databaseURL: "https://cv-maker-37e7a.firebaseio.com",
-  projectId: "cv-maker-37e7a",
-  storageBucket: "cv-maker-37e7a.appspot.com",
-  messagingSenderId: "750676166893"
 };
 firebase.initializeApp(config);
 
